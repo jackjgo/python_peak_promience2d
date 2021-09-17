@@ -390,8 +390,8 @@ def getProminence(var,step,lats=None,lons=None,min_depth=None,
                         for mm in match_list:
                             areamm=peaks[mm][-1].area
                             if areamm<min_area:
-                                print match_list
-                                print 'del by area',mm
+                                print(match_list)
+                                print('del by area',mm)
                                 del peaks[mm]
                                 del prominence[mm]
                                 if mm in parents:
@@ -434,7 +434,7 @@ def getProminence(var,step,lats=None,lons=None,min_depth=None,
     parent_map=np.zeros(var.shape)-1
     id_map=np.zeros(var.shape)
 
-    keys=peaks.keys()
+    keys= list(peaks.keys())
     for ii in range(len(peaks)):
         kk=keys[ii]
         vv=peaks[kk]
@@ -521,7 +521,7 @@ if __name__=='__main__':
     ax1.set_title('Top view, col contours as dashed lines')
 
     for kk,vv in peaks.items():
-        print kk
+        print(kk)
         cols=vv['contour']
         ax1.plot(cols.vertices[:,0],cols.vertices[:,1],'k:')
 
